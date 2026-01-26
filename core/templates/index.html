@@ -1,0 +1,85 @@
+<h1>Список товаров</h1>
+
+<ul>
+    {% for p in products %}
+    <li>
+        <span class="name">{{ p.name }}</span>
+        <span class="price">{{ p.price }} $</span>
+        <span class="qty">На складе: {{ p.quantity }} шт.</span>
+    </li>
+    {% endfor %}
+</ul>
+
+<style>
+    /* Общие настройки */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #e4ecf5);
+    margin: 0;
+    padding: 40px;
+    color: #1f2937;
+}
+
+/* Заголовок */
+h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+}
+
+/* Список */
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Карточка товара */
+li {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Ховер */
+li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Название товара */
+li span.name {
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+/* Цена */
+li span.price {
+    font-weight: 600;
+    color: #2563eb;
+}
+
+/* Остаток */
+li span.qty {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
+
+</style>
