@@ -1,0 +1,108 @@
+<h1>Articles</h1>
+
+<ul>
+    {% for a in article %}
+    <li><h3>{{ a.title }}</h3></li>
+    <li>{{ a.content }}</li>
+    <p>Количество лайков: {{ a.likes }}</p>
+    {% endfor %}
+</ul>
+
+<style>
+    /* Подключение современного шрифта */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg: #f6f7fb;
+    --card-bg: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --accent: #2563eb;
+    --accent-soft: #e0e7ff;
+    --radius: 14px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(180deg, #f6f7fb, #eef2ff);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 60px 20px;
+}
+
+/* Заголовок страницы */
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    letter-spacing: -0.03em;
+}
+
+/* Список статей */
+ul {
+    list-style: none;
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 30px;
+}
+
+/* Карточка статьи */
+ul li {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* Заголовок статьи */
+ul li h3 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: var(--accent);
+}
+
+/* Контент статьи */
+ul li + li {
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+/* Лайки */
+p {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    display: inline-block;
+    background: var(--accent-soft);
+    padding: 6px 14px;
+    border-radius: 999px;
+}
+
+/* Hover-эффект */
+ul li:hover {
+    transform: translateY(-4px);
+    transition: all 0.25s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    ul li {
+        padding: 22px;
+    }
+}
+
+
+</style>
