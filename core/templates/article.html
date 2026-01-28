@@ -2,9 +2,10 @@
 
 <ul>
     {% for a in article %}
-    <li><h3>{{ a.title }}</h3></li>
-    <li>{{ a.content }}</li>
+    <h3>{{ a.title }}</h3>
+    <h4>{{ a.content }}</h4>
     <p>Количество лайков: {{ a.likes }}</p>
+    <hr>
     {% endfor %}
 </ul>
 
@@ -22,11 +23,7 @@
     --radius: 14px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -55,29 +52,31 @@ ul {
 }
 
 /* Карточка статьи */
-ul li {
+ul h3 {
+    top: 200px;
     background: var(--card-bg);
     border-radius: var(--radius);
     padding: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-}
-
-/* Заголовок статьи */
-ul li h3 {
     font-size: 1.6rem;
     margin-bottom: 12px;
     color: var(--accent);
 }
 
-/* Контент статьи */
-ul li + li {
+ul h4 {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    font-size: 1.6rem;
+    margin-bottom: 12px;
     font-size: 1rem;
     color: var(--text-main);
 }
 
 /* Лайки */
 p {
-    margin-top: 16px;
+    margin-top: -30px;
     font-size: 0.9rem;
     color: var(--text-muted);
     display: inline-block;
@@ -87,7 +86,13 @@ p {
 }
 
 /* Hover-эффект */
-ul li:hover {
+ul h4:hover {
+    transform: translateY(-4px);
+    transition: all 0.25s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+ul h3:hover {
     transform: translateY(-4px);
     transition: all 0.25s ease;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);

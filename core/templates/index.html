@@ -12,6 +12,7 @@
 
 <style>
     /* Общие настройки */
+/* Общие настройки */
 body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background: linear-gradient(135deg, #f5f7fa, #e4ecf5);
@@ -36,15 +37,17 @@ ul {
     margin: 0 auto;
 }
 
-/* Карточка товара */
+/* Карточка товара (GRID) */
 li {
     background: #ffffff;
     border-radius: 14px;
     padding: 18px 22px;
     margin-bottom: 16px;
-    display: flex;
-    justify-content: space-between;
+
+    display: grid;
+    grid-template-columns: 1fr 200px 110px; /* название | цена | остаток */
     align-items: center;
+
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -61,10 +64,11 @@ li span.name {
     font-size: 1.05rem;
 }
 
-/* Цена */
+/* Цена — ВСЕ ровно по левому краю */
 li span.price {
     font-weight: 600;
     color: #2563eb;
+    text-align: left;
 }
 
 /* Остаток */
@@ -76,10 +80,10 @@ li span.qty {
 /* Адаптив */
 @media (max-width: 600px) {
     li {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
+        grid-template-columns: 1fr;
+        row-gap: 6px;
     }
 }
+
 
 </style>
